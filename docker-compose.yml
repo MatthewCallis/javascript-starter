@@ -7,14 +7,24 @@ services:
     build:
       context: ./server
       dockerfile: ./Dockerfile
+    volumes:
+      - ./server/:/app/
+      - /app/node_modules/
+    command: npm start
     image: "simple/server"
+    tty: true
     ports:
       - "3000:3000"
   frontend:
     build:
       context: ./client
       dockerfile: ./Dockerfile
+    volumes:
+      - ./client/:/app/
+      - /app/node_modules/
+    command: npm start
     image: "simple/client"
+    tty: true
     ports:
       - "8080:8080"
     links:

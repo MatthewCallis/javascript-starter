@@ -1,7 +1,10 @@
 FROM node:alpine
 
 LABEL version="1.0"
-LABEL description="Front End"
+LABEL description="Client"
+
+# Add an "/app" volume to mount our local files
+VOLUME ["/app"]
 
 # Create app directory
 WORKDIR /app
@@ -9,13 +12,14 @@ WORKDIR /app
 # Install app dependencies
 COPY ["package.json", "package-lock.json", "./"]
 
-RUN npm install
+# Install modules for the local OS
+RUN npm install && npm cache clean --force
 
-# Copy app source code
-COPY . .
+# Copy app source code, not used due to Docker Compose
+# COPY . .
 
 # Expose the port
 EXPOSE 8080
 
 # Start application
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
