@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  server:
+    env_file:
+      "./server/.env"
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    image: "simple/server"
+    ports:
+      - "3000:3000"
+  frontend:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "simple/client"
+    ports:
+      - "8080:8080"
+    links:
+      - "server:server"

@@ -1,0 +1,36 @@
+{
+  "name": "simple-back-end",
+  "version": "1.0.0",
+  "description": "A starter template for Node using Express",
+  "engines": {
+    "node": ">=16"
+  },
+  "private": true,
+  "scripts": {
+    "debug": "NODE_ENV=development npm start",
+    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "start": "nodemon src/index.js",
+    "test": "echo \"TODO\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/runtime": "^7.16.5",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-optimize-regex": "^1.2.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-xss": "^0.1.11"
+  }
+}
