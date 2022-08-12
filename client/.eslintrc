@@ -2,15 +2,21 @@
   "extends": [
     "airbnb",
     "plugin:import/recommended",
+    "plugin:jsdoc/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:node/recommended",
     "plugin:optimize-regex/all",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:security/recommended"
+    "plugin:security/recommended",
+    "plugin:xss/recommended"
   ],
   "plugins": [
+    "anti-trojan-source",
     "import",
+    "jsdoc",
     "jsx-a11y",
+    "node",
     "optimize-regex",
     "react",
     "react-hooks",
@@ -18,26 +24,41 @@
     "xss"
   ],
   "env": {
+    "browser": true,
     "es6": true,
-    "browser": true
+    "node": true
   },
   "globals": {
-    "JSX": true
+    "expect": true,
+    "jest": true,
+    "JSX": true,
+    "test": true
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2021,
     "ecmaFeatures": {
       "jsx": true
     },
-    "requireConfigFile": false
+    "ecmaVersion": 2022,
+    "requireConfigFile": false,
+    "sourceType": "module"
   },
   "rules": {
+    "anti-trojan-source/no-bidi": "error",
     "import/no-extraneous-dependencies": [
       "error", {
-        "devDependencies": ["**/*.test.js", "**/test/**/*.js"],
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.spec.js",
+          "**/*.test.jsx",
+          "**/*.spec.jsx",
+          "**/*.test.ts",
+          "**/*.spec.ts",
+          "**/*.test.tsx",
+          "**/*.spec.tsx"
+        ],
         "optionalDependencies": true,
-        "peerDependencies": false
+        "peerDependencies": true
       }
     ],
     "camelcase": 0,
@@ -59,6 +80,12 @@
   "settings": {
     "jsdoc": {
       "mode": "typescript"
+    },
+    "node": {
+      "tryExtensions": [".js", ".json", ".mjs", ".jsx", ".ts", ".tsx"]
+    },
+    "react": {
+      "version": "detect"
     }
   }
 }

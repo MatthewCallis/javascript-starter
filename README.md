@@ -2,6 +2,8 @@
 
 The goal is to have a small but extensible app setup.
 
+This is not, nor does it intended to be "production ready"; `npm start` is used from Docker rather than `dumb-init`, development dependencies are installed, image is not pinned, etc.
+
 ## Running
 
 ```sh
