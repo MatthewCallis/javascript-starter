@@ -2,56 +2,95 @@
   "extends": [
     "airbnb",
     "plugin:import/recommended",
+    "plugin:jsdoc/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:node/recommended",
     "plugin:optimize-regex/all",
-    "plugin:security/recommended"
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:security/recommended",
+    "plugin:xss/recommended"
   ],
   "plugins": [
+    "anti-trojan-source",
     "import",
+    "jsdoc",
     "jsx-a11y",
     "node",
     "optimize-regex",
+    "react",
+    "react-hooks",
     "security",
     "xss"
   ],
   "env": {
+    "browser": true,
     "es6": true,
     "node": true
   },
+  "globals": {
+    "expect": true,
+    "jest": true,
+    "JSX": true,
+    "test": true
+  },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2021,
-    "requireConfigFile": false
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2022,
+    "requireConfigFile": false,
+    "sourceType": "module"
   },
   "rules": {
-    "import/no-extraneous-dependencies": [
-      "error", {
-        "devDependencies": ["**/*.test.js", "**/test/**/*.js"],
-        "optionalDependencies": true,
-        "peerDependencies": false
-      }
-    ],
+    "anti-trojan-source/no-bidi": "error",
     "camelcase": 0,
     "class-methods-use-this": 0,
     "consistent-return": ["warn", { "treatUndefinedAsUnspecified": false }],
     "import/no-dynamic-require": 0,
+    "import/no-extraneous-dependencies": [
+      "error", {
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.spec.js",
+          "**/*.test.jsx",
+          "**/*.spec.jsx",
+          "**/*.test.ts",
+          "**/*.spec.ts",
+          "**/*.test.tsx",
+          "**/*.spec.tsx"
+        ],
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ],
+    "jsdoc/require-jsdoc": 0,
     "max-classes-per-file": 0,
     "max-len": 0,
     "no-bitwise": 0,
+    "no-console": 0,
     "no-empty": ["error", { "allowEmptyCatch": true }],
     "no-param-reassign": 0,
     "no-plusplus": 0,
     "no-restricted-syntax": 0,
     "no-underscore-dangle": 0,
     "no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_", "caughtErrors": "none" }],
-    "node/no-unpublished-require": 0,
+    "node/no-unsupported-features/es-syntax": 0,
     "object-curly-newline": 0,
-    "optimize-regex/optimize-regex": "warn"
+    "optimize-regex/optimize-regex": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+    "react/jsx-props-no-spreading": 0
   },
   "settings": {
     "jsdoc": {
       "mode": "typescript"
+    },
+    "node": {
+      "tryExtensions": [".js", ".json", ".mjs", ".jsx", ".ts", ".tsx"]
+    },
+    "react": {
+      "version": "detect"
     }
   }
 }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A starter template for React using Webpack 5",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "private": true,
   "scripts": {
@@ -17,7 +17,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -33,7 +34,7 @@
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
-    "eslint": "^8.21.0",
+    "eslint": "^8.22.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-anti-trojan-source": "^1.1.0",
     "eslint-plugin-import": "^2.26.0",

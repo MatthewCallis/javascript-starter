@@ -1,8 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import App from './app';
 
 import './app.scss';
 
-// NOTE: `render` has been replaced with `createRoot` in React 18.
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="*" element={(<div><p>404 Not Found</p></div>)} />
+    </Routes>
+  </BrowserRouter>,
+);
